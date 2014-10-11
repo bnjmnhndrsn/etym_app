@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924030926) do
+ActiveRecord::Schema.define(version: 20140925004729) do
 
   create_table "etymologies", force: true do |t|
     t.string   "headword"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20140924030926) do
     t.datetime "updated_at"
   end
 
-  add_index "etymologies", ["headword"], name: "index_etymologies_on_headword", unique: true
+  add_index "etymologies", ["headword"], name: "index_etymologies_on_headword"
+
+  create_table "words", force: true do |t|
+    t.string   "content"
+    t.string   "lang"
+    t.integer  "distance"
+    t.integer  "etymology_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "words", ["etymology_id", "distance"], name: "index_words_on_etymology_id_and_distance"
 
 end

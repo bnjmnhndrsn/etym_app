@@ -1,0 +1,53 @@
+#etym-container{
+	position:fixed;
+}
+
+/* etymology show page animation components */
+
+#overview {
+	position: relative;
+	
+	div {
+		height: 30px;
+		line-height: 30px;
+		width: 200px;
+	}
+	
+}
+
+#overview-tracker{
+	background-color:red;
+	z-index:-1;
+	position: absolute;
+}
+
+#closeups {
+	font-size:200px;
+}
+
+
+#languages {
+	
+	position: absolute;
+	height: 60px;
+	overflow: hidden;
+	border: 1px solid black;
+	
+	div {
+		width: 200px;
+	}
+	
+	.holder {
+		position:relative;
+	}
+	
+	.spacer {
+		height: 15px;
+	}
+	
+	.entry {
+		text-align:center;
+		line-height:30px;
+		height: 29px;
+	}
+}

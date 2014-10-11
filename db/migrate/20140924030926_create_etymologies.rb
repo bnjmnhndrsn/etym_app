@@ -7,6 +7,6 @@ class CreateEtymologies < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :etymologies, :headword, unique: true
+   add_index :etymologies, :headword
   end
 end

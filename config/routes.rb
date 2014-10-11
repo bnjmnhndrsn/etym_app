@@ -1,3 +1,4 @@
 EtymApp::Application.routes.draw do
-  resources :etymologies, only: [:show, :index]
+  resources :etymologies
+  root  'etymologies#index'
 end
