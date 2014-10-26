@@ -6,5 +6,10 @@ class Word < ActiveRecord::Base
     primary_key: :id
   )
   
-  
+  belongs_to(
+    :language,
+    class_name: "Language",
+    foreign_key: :language_code,
+    primary_key: :code
+  )
 end

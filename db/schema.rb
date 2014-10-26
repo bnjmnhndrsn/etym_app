@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025010637) do
+ActiveRecord::Schema.define(version: 20141026010925) do
 
   create_table "etymologies", force: true do |t|
     t.string   "headword"
-    t.string   "lang"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "language_code"
+  end
+
+  add_index "etymologies", ["headword", "language_code"], name: "index_etymologies_on_headword_and_language_code", unique: true
+  add_index "etymologies", ["headword"], name: "index_etymologies_on_headword"
+
+  create_table "languages", force: true do |t|
+    t.string   "code"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "etymologies", ["headword"], name: "index_etymologies_on_headword"
+  add_index "languages", ["code"], name: "index_languages_on_code", unique: true
 
   create_table "word_etymologies", force: true do |t|
     t.integer  "word_id"
@@ -35,9 +45,9 @@ ActiveRecord::Schema.define(version: 20141025010637) do
 
   create_table "words", force: true do |t|
     t.string   "content"
-    t.string   "lang"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "language_code"
   end
 
 end

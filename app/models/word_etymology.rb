@@ -13,7 +13,7 @@ class WordEtymology < ActiveRecord::Base
     primary_key: :id
   )
   
-  def join_word_to_etymology(word, etymology, distance)
-    self.new(word_id: word.id, etymology_id: etymology.id, distance: distance)
+  def self.join_word_to_etymology!(word, etymology, distance)
+    self.create!(word_id: word.id, etymology_id: etymology.id, distance: distance)
   end
 end
