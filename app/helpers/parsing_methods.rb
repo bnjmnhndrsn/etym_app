@@ -19,11 +19,11 @@ module ParsingMethods
   end
   
   def get_etymology_text
-    ===Etymology(?:|\s\d+)===([\S\s]*?)===
+   # ===Etymology(?:|\s\d+)===([\S\s]*?)===
   end
   
   def get_text_in_lang(text, lang)
-    content_regex = "==language==([\\S\\s]*?)(?:[^=]==[^=]|$)"
+   # content_regex = "==language==([\\S\\s]*?)(?:[^=]==[^=]|$)"
   end
   
 end

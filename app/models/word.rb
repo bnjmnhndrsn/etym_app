@@ -1,6 +1,10 @@
-class Word < ActiveRecord::Base
-  belongs_to :etymology
-  validates :etymology, presence: true
-  validates :content, presence: true
-  before_save { self.distance = self.etymology.words.count }
+class Word < ActiveRecord::Base 
+  has_many(
+    :word_etymologies,
+    class_name: "WordEtymology",
+    foreign_key: :word_id,
+    primary_key: :id
+  )
+  
+  
 end

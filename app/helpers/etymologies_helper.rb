@@ -1,6 +1,6 @@
 module EtymologiesHelper
   
-  include ParsingMethods
+  # include ParsingMethods
   
   def get_lang_name(abrev)
     abrev
@@ -60,9 +60,5 @@ module EtymologiesHelper
     end
     ret
   end
-  
-  def spanify(arr)
-    ret = 
-    arr.each
-  end
+
 end

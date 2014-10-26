@@ -22,7 +22,7 @@ examples = [
 ]
 
 namespace :db do
-  desc "Fill database with fake data"
+  desc "Fill database with real data"
   task populate_real: :environment do
     examples.each do |arr|
       headword  = arr[0][:content]
