@@ -15,6 +15,13 @@ class Etymology < ActiveRecord::Base
     primary_key: :code
   )
   
+  def words
+    Word
+      .joins(:word_etymologies)
+      .where("word_etymologies.etymology_id = ?", self.id)
+      .order("word_etymologies.distance DESC")
+  end
+  
   
   def to_param
     headword

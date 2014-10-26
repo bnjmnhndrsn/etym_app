@@ -1,13 +1,13 @@
 <div id="etym-container">
 <% provide(:title, @etymology.headword) %>
-<% @words = @etymology.words.to_a.reverse %>
+<% @words = @etymology.words.to_a %>
 <h1><%= @etymology.headword %></h1>
-<h2><%= @etymology.lang %></h2>
+<h2><%= @etymology.language.name %></h2>
 <div id='overview'>
 	<% @words.each do |word| %>
 		<div class='entry'>
 			<%= content_tag(:span, word.content, class: 'content') %>
-			<%= content_tag(:span, word.lang, class: 'lang') %>
+			<%= content_tag(:span, word.language.name, class: 'lang') %>
 		</div>
 	<% end %>
 </div>
@@ -26,7 +26,7 @@
 		<div class='spacer'></div>
 		<% @words.each do |word| %>
 			<div class='entry'>
-				<%= get_lang_name(word.lang) %>
+				<%= word.language.name %>
 			</div>
 		<% end %>
 		<div class='spacer'></div>
