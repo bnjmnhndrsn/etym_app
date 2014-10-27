@@ -17,9 +17,10 @@ class Etymology < ActiveRecord::Base
   
   def words
     Word
-      .joins(:word_etymologies)
-      .where("word_etymologies.etymology_id = ?", self.id)
-      .order("word_etymologies.distance DESC")
+    .select("words.*, word_etymologies.distance")
+    .joins(:word_etymologies)
+    .where("word_etymologies.etymology_id = ?", self.id)
+    .order("word_etymologies.distance DESC")
   end
   
   
